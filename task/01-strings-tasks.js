@@ -22,8 +22,6 @@
  *   '',  'bb'  => 'bb'
  */
 function concatenateStrings(value1, value2) {
-
-  //  throw new Error('Not implemented');
     return value1 + value2;
 }
 
@@ -40,11 +38,7 @@ function concatenateStrings(value1, value2) {
  *   ''      => 0
  */
 function getStringLength(value) {
-  
-   if( typeof value == 'string'){
-        return value.length
-   }else throw new Error('Not implemented');
-   
+        return value.length 
 }
 
 /**
@@ -61,7 +55,6 @@ function getStringLength(value) {
  *   'Chuck','Norris'  => 'Hello, Chuck Norris!'
  */
 function getStringFromTemplate(firstName, lastName) {
-    //throw new Error('Not implemented');
     return `Hello, ${firstName + ' ' + lastName }`;
 }
 
@@ -92,8 +85,6 @@ function extractNameFromTemplate(value) {
  *   'cat'       => 'c'
  */
 function getFirstChar(value) {
-   // throw new Error('Not implemented');
-    
     if (!value) {
         return value
     }else return value[0]
@@ -111,7 +102,6 @@ function getFirstChar(value) {
  *   '\tHello, World! ' => 'Hello, World!'
  */
 function removeLeadingAndTrailingWhitespaces(value) {
-    throw new Error('Not implemented');\
     for(var i =0; i<value.length)
 }
 
@@ -127,7 +117,6 @@ function removeLeadingAndTrailingWhitespaces(value) {
  *   'cat', 3 => 'catcatcat'
  */
 function repeatString(value, count) {
-    //throw new Error('Not implemented');
       var str = '';
       for(var i =0; i< count; i++){
   		str +=value;
@@ -148,7 +137,6 @@ function repeatString(value, count) {
  *   'ABABAB','BA' => 'ABAB'
  */
 function removeFirstOccurrences(str, value) {
-  //  throw new Error('Not implemented');
        str = str.split(value).join('');
        return(str);
 }
@@ -165,7 +153,6 @@ function removeFirstOccurrences(str, value) {
  *   '<a>' => 'a'
  */
 function unbracketTag(str) { 
-    //throw new Error('Not implemented');
      str = str.split('>').join('').split('<').join('');
     return str;
 }
@@ -182,7 +169,6 @@ function unbracketTag(str) {
  *  'abcdefghijklmnopqrstuvwxyz' => 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
  */
 function convertToUpperCase(str) {
-    //throw new Error('Not implemented');
      str = str.toUpperCase();
      return = str;
 }
