@@ -55,7 +55,7 @@ function getStringLength(value) {
  *   'Chuck','Norris'  => 'Hello, Chuck Norris!'
  */
 function getStringFromTemplate(firstName, lastName) {
-    return `Hello, ${firstName + ' ' + lastName }`;
+    return `Hello, ${firstName + ' ' + lastName }!`;
 }
 
 /**
@@ -69,7 +69,8 @@ function getStringFromTemplate(firstName, lastName) {
  *   'Hello, Chuck Norris!' => 'Chuck Norris'
  */
 function extractNameFromTemplate(value) {
-    throw new Error('Not implemented');
+    value = value.replace(/Hello, /,'').slice(0,-1); 
+    return value;
     
 }
 
@@ -85,7 +86,7 @@ function extractNameFromTemplate(value) {
  *   'cat'       => 'c'
  */
 function getFirstChar(value) {
- return value[0]
+    return value[0]
 }
 
 /**
@@ -100,7 +101,7 @@ function getFirstChar(value) {
  *   '\tHello, World! ' => 'Hello, World!'
  */
 function removeLeadingAndTrailingWhitespaces(value) {
-   return value.trim()
+    return value.trim()
 }
 
 /**
@@ -135,8 +136,8 @@ function repeatString(value, count) {
  *   'ABABAB','BA' => 'ABAB'
  */
 function removeFirstOccurrences(str, value) {
-       str = str.split(value).join('');
-       return(str);
+    str = str.replace(value,'');
+    return(str);
 }
 
 /**
@@ -208,8 +209,39 @@ function extractEmails(str) {
  *
  */
 function getRectangleString(width, height) {
-    throw new Error('Not implemented');
+    var leftTopAngle = '┌'; 
+    var leftBottomAngle = '└'; 
+    var rightTopAngle = '┐'; 
+    var rightBottomAngle = '┘'; 
+
+    var verticalLine = '│'; 
+    var horizontalLine = '─'; 
+
+    var widthWithoutAngles = width - 2; 
+    var heightWithoutAngles = height - 2; 
+
+    var upperLine = ''; 
+    var downerLine = ''; 
+    var neutralLine = ''; 
+
+    for (var i=0; i<widthWithoutAngles; i++) { 
+    upperLine += horizontalLine; 
+    downerLine += horizontalLine ; 
+    neutralLine += ' '; 
+    } 
+
+    upperLine = leftTopAngle + upperLine + rightTopAngle; 
+    downerLine = leftBottomAngle + downerLine + rightBottomAngle; 
+    neutralLine = verticalLine + neutralLine + verticalLine; 
+
+    for (var j=0; j<heightWithoutAngles; j++) { 
+    upperLine += '\n'; 
+    upperLine += neutralLine; 
+    } 
+    var result = upperLine + '\n' + downerLine; 
+    return result; 
 }
+
 
 
 /**
@@ -245,7 +277,9 @@ function encodeToRot13(str) {
  *   isString(new String('test')) => true
  */
 function isString(value) {
-    throw new Error('Not implemented');
+    if ( Object.prototype.toString.call(value) == '[object String]'){ 
+        return true; 
+    }else return false;
 }
 
 
