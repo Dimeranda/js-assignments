@@ -238,7 +238,7 @@ function getRectangleString(width, height) {
     upperLine += '\n'; 
     upperLine += neutralLine; 
     } 
-    var result = upperLine + '\n' + downerLine; 
+    var result = upperLine + '\n' + downerLine + '\n'; 
     return result; 
 }
 
