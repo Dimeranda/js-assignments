@@ -38,7 +38,7 @@ function concatenateStrings(value1, value2) {
  *   ''      => 0
  */
 function getStringLength(value) {
-        return value.length 
+        return value.length; 
 }
 
 /**
@@ -69,9 +69,7 @@ function getStringFromTemplate(firstName, lastName) {
  *   'Hello, Chuck Norris!' => 'Chuck Norris'
  */
 function extractNameFromTemplate(value) {
-    value = value.replace(/Hello, /,'').slice(0,-1); 
-    return value;
-    
+    return value.substring(7,value.length-1);
 }
 
 
@@ -86,7 +84,7 @@ function extractNameFromTemplate(value) {
  *   'cat'       => 'c'
  */
 function getFirstChar(value) {
-    return value[0]
+    return value[0];
 }
 
 /**
@@ -116,11 +114,7 @@ function removeLeadingAndTrailingWhitespaces(value) {
  *   'cat', 3 => 'catcatcat'
  */
 function repeatString(value, count) {
-      var str = '';
-      for(var i =0; i< count; i++){
-  		str +=value;
-      }
-      return(str)
+      return value.repeat(count);
 }
 
 /**
@@ -136,8 +130,7 @@ function repeatString(value, count) {
  *   'ABABAB','BA' => 'ABAB'
  */
 function removeFirstOccurrences(str, value) {
-    str = str.replace(value,'');
-    return(str);
+    return str.replace(value,'');
 }
 
 /**
@@ -152,8 +145,7 @@ function removeFirstOccurrences(str, value) {
  *   '<a>' => 'a'
  */
 function unbracketTag(str) { 
-     str = str.split('>').join('').split('<').join('');
-    return str;
+    return str.substring(1,str.length-1);
 }
 
 

@@ -22,8 +22,7 @@
  *   5, 5  => 25
  */
 function getRectangleArea(width, height) {
-    var area = width*height;
-    return area;
+    return  width*height;
 }
 
 
@@ -39,8 +38,7 @@ function getRectangleArea(width, height) {
  *   0    => 0
  */
 function getCicleCircumference(radius) {
-   var result = 2*Math.PI*radius ;
-   return result;
+   return 2*Math.PI*radius ;
 }
 
 /**
@@ -56,8 +54,7 @@ function getCicleCircumference(radius) {
  *  -3, 3  => 0
  */
 function getAverage(value1, value2) {
-    var result = (+value1 + +value2)/2;
-    return result
+    return  (+value1 + +value2)/2;
 }
 
 /**
@@ -76,9 +73,7 @@ function getAverage(value1, value2) {
  *   (-5,0) (10,-10) => 18.027756377319946
  */
 function getDistanceBetweenPoints(x1, y1, x2, y2) {
-
-    var distance = Math.sqrt( (x1-x2)*(x1-x2) + (y1-y2)*(y1-y2)); 
-    return distance;
+    return  Math.sqrt( Math.pow((x1-x2),2) + Math.pow((y1-y2),2));
 }
 
 /**
@@ -94,8 +89,7 @@ function getDistanceBetweenPoints(x1, y1, x2, y2) {
  *   5*x = 0         => 0
  */
 function getLinearEquationRoot(a, b) {
-    var result = -b/a;
-    return result;
+    return -b/a;
 }
 
 
@@ -139,9 +133,7 @@ function getAngleBetweenVectors(x1, y1, x2, y2) {
  *     0     => 0
  */
 function getLastDigit(value) {
-    var num = value.toString();
-    var lastDigit = num.substr(-1);
-    return lastDigit;
+    return value%10;
 }
 
 
@@ -157,7 +149,7 @@ function getLastDigit(value) {
  * '-525.5'     => -525.5
  */
 function parseNumberFromString(value) {
-    return +value;
+    return parseFloat(value);
 }
 
 /**
@@ -218,7 +210,13 @@ function roundToPowerOfTen(num, pow) {
  *   17 => true
  */
 function isPrime(n) {
-    throw new Error('Not implemented');
+   if(n==1)
+		return false;
+	for(var i=2; i*i<=n; i++){ 
+		if(n%i==0) 
+			return false;
+		}
+	return true;
 }
 
 /**
@@ -237,7 +235,10 @@ function isPrime(n) {
  *   toNumber(new Number(42), 0) => 42
  */
 function toNumber(value, def) {
-    throw new Error('Not implemented');
+    if (Number(value)){
+        return parseFloat(value);
+    }else return def;
+ 
 }
 
 module.exports = {
