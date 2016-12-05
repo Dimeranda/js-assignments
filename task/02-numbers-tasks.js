@@ -54,7 +54,7 @@ function getCicleCircumference(radius) {
  *  -3, 3  => 0
  */
 function getAverage(value1, value2) {
-    return  (+value1 + +value2)/2;
+    return  +value1/2 + +value2/2;
 }
 
 /**
@@ -112,12 +112,8 @@ function getLinearEquationRoot(a, b) {
  */
 function getAngleBetweenVectors(x1, y1, x2, y2) {
     var multiplication = x1*x2 + y1*y2;
-    var moduleA = Math.sqrt(x1*x1 + x2*x2);
-    var moduleB = Math.sqrt(y1*y1 + y2*y2);
-    var module = moduleA*moduleB;
-    var result = Math.acos(multiplication/module);
-    return result;
-    
+    var module = Math.sqrt(x1*x1 + y1*y1)*Math.sqrt(x2*x2 + y2*y2);
+    return Math.acos(multiplication/module);    
 }
 
 /**
