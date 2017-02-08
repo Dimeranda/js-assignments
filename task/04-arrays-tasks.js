@@ -38,14 +38,15 @@ function findElement(arr, value) {
  *    5 => [ 1, 3, 5, 7, 9 ]
  */
 function generateOdds(len) {
-    var arr = [];
+  /*  var arr = [];
     arr.length = len;
 
-   arr.every(function(element, index, arr) {
-    arr.push(2 * index + 1);
+    for ( var i = 0; i < arr.length; i++){
+        arr[i] = i * 2 + 1;
+    }
 
-    });
-    return arr;
+    return arr;*/
+     throw new Error('Not implemented');
 }
 
 
@@ -416,7 +417,7 @@ function findAllOccurences(arr, item) {
  *    ['rock', 'paper', 'scissors']     => 'rock,paper,scissors'
  */
 function toStringList(arr) {
- return arr.toString();
+    return arr.toString();
 }
 
 
