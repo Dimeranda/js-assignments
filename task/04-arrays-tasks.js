@@ -37,16 +37,15 @@ function findElement(arr, value) {
  *    2 => [ 1, 3 ] 
  *    5 => [ 1, 3, 5, 7, 9 ]
  */
-function generateOdds(len) {
-  /*  var arr = [];
+function generateOdds(len) {  //TODO
+    var arr = [];
     arr.length = len;
 
     for ( var i = 0; i < arr.length; i++){
         arr[i] = i * 2 + 1;
     }
 
-    return arr;*/
-     throw new Error('Not implemented');
+    return arr;
 }
 
 
@@ -100,7 +99,7 @@ return arr.filter(function(value){
  */
 function getArrayOfStrings(arr) {
   return  arr.filter(function(elem){
-     return  typeof elem  == 'string'
+     return  typeof elem  === 'string'
    })
 }
 
@@ -119,7 +118,7 @@ function getArrayOfStrings(arr) {
  */
 function removeFalsyValues(arr) {
 return  arr.filter(function(elem){
-    return !!(elem);
+    return elem;
    })
 
 }
@@ -135,11 +134,7 @@ return  arr.filter(function(elem){
  *    [ 'a', 'b', 'c', 'd', 'e', 'f', 'g' ]  => [ 'A', 'B', 'C', 'D', 'E', 'F', 'G' ]
  */
 function getUpperCaseStrings(arr) {
-     arr.map(function(element, index, array) {
-        array[index] =array[index].toUpperCase();
-    });
-
-    return arr;
+    return arr.map(element => element.toUpperCase());
 }
 
 
@@ -154,11 +149,7 @@ function getUpperCaseStrings(arr) {
  *    [ 'angular', 'react', 'ember' ] => [ 7, 5, 5 ]
  */
 function getStringsLength(arr) {
-   arr.map(function(element, index, array) {
-        array[index] =array[index].length;
-    });
-
-    return arr;
+   return arr.map(element => element.length);
 }
 
 /**
@@ -227,7 +218,7 @@ function getTail(arr, n) {
  *    +'30,31,32,33,34'
  */
 function toCsvText(arr) {
-   throw new Error('Not implemented');
+   return arr.join('\n');
 }
 
 /**
@@ -241,7 +232,7 @@ function toCsvText(arr) {
  *   [ 0, 1, 2, 3, 4, 5 ] => [ 0, 1, 4, 9, 16, 25 ]
  *   [ 10, 100, -1 ]      => [ 100, 10000, 1 ]
  */
-function toArrayOfSquares(arr) {
+function toArrayOfSquares(arr) {//TODO
    arr.map(function(element, index, array) {
         array[index] = array[index]* (array[index]);
     });
@@ -257,15 +248,19 @@ function toArrayOfSquares(arr) {
  * 
  * @param {array} arr
  * @return {array}
- * 
+ *  
  * Example :
  *   [ 1, 1, 1, 1, 1 ]        => [ 1, 2, 3, 4, 5 ]
  *   [ 10, -10, 10, -10, 10 ] => [ 10, 0, 10, 0, 10 ]
  *   [ 0, 0, 0, 0, 0]         => [ 0, 0, 0, 0, 0] 
  *   [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ] => [ 1, 3, 6, 10, 15, 21, 28, 36, 45, 55 ]
  */
-function getMovingSum(arr) {
-     throw new Error('Not implemented');
+function getMovingSum(arr) {// TODO: map
+     arr.forEach(function(elem, index){
+        arr[index] = index ? arr[index-1] + elem : arr[index];
+    })
+
+    return arr;
 }
 
 /**
@@ -280,8 +275,12 @@ function getMovingSum(arr) {
  * [ "a" ] => []
  */
 function getSecondItems(arr) {
-  
-       throw new Error('Not implemented');
+
+ return arr.filter((num, index) => index % 2);
+
+//  return arr.filter(function(num, index, arr){
+//       return (index)%2
+//   })
 }
 
 
@@ -335,7 +334,7 @@ function get3TopItems(arr) {
  *   [ null, 1, 'elephant' ] => 1
  */
 function getPositivesCount(arr) {
-   throw new Error('Not implemented');
+   return arr.reduce((previous, currentValue) => previous + (currentValue > 0 ? 1 : 0), 0)
 }
  
 /** 
@@ -348,11 +347,14 @@ function getPositivesCount(arr) {
  *   [] => []
  *   [ 'nine','one' ]                 => [ 'one', 'nine' ]
  *   [ 'one','two','three' ]          => [ 'one','two', 'three' ]
- *   [ 'nine','eight','nine','eight'] => [ 'eight','eight','nine','nine']
  *   [ 'one','one','one','zero' ]     => [ 'zero','one','one','one' ]
  */
-function sortDigitNamesByNumericOrder(arr) {
- throw new Error('Not implemented');
+function sortDigitNamesByNumericOrder(arr) {//TODO
+    var digit = ['zero','one','two','three','four','five','six', 'seven', 'eight', 'nine']
+
+    arr.filter(function(element, index){
+        
+    })
 }
 
 /** 
@@ -368,7 +370,7 @@ function sortDigitNamesByNumericOrder(arr) {
  *   [ 1, 10, 100, 1000 ]  => 1111
  */
 function getItemsSum(arr) {
-      throw new Error('Not implemented');
+    return arr.reduce((sum,elem)=> sum+elem,0)
 }
  
 /** 
@@ -383,8 +385,11 @@ function getItemsSum(arr) {
  *  [ -1, 'false', null, 0 ] => 2
  *  [ null, undefined, NaN, false, 0, '' ]  => 6
  */
-function getFalsyValuesCount(arr) {
-   throw new Error('Not implemented');
+function getFalsyValuesCount(arr) { // TODO
+    return arr.reduce(function(initial, elem){
+        return initial +( elem ? 0 : 1 )   
+   },0)
+
 }
 
 /**
@@ -401,9 +406,13 @@ function getFalsyValuesCount(arr) {
  *    [ null, undefined, null ], null => 2 
  *    [ true, 0, 1, 'true' ], true => 1
  */
-function findAllOccurences(arr, item) {
-   throw new Error('Not implemented');
-}
+function findAllOccurences(arr, item) { // TODO: 
+    var count = 0;
+    arr.filter(function(currentValue, index, array){
+        return currentValue === item ? count++ : count
+    })
+        return count; 
+    }
 
 /**
  * Concatenates all elements from specified array into single string with ',' delimeter  
