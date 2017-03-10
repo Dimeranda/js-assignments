@@ -524,7 +524,7 @@ function getIntervalArray(start, end) {
  * Returns array containing only unique values from the specified array.
  *
  * @param {array} arr
- * @return {array}
+ * @return {array}  
  * 
  * @example
  *   [ 1, 2, 3, 3, 2, 1 ] => [ 1, 2, 3 ]
